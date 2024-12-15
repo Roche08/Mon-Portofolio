@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- En-tête -->
+    <header>
+        <h1>Bienvenue sur mon Portfolio</h1>
+        <nav>
+            <ul>
+                <li><a href="#about">À propos</a></li> <li><a href="#projects">Projets</a></li> <li><a href="#contact">Contact</a></li> </ul> </nav> </header>
+
+    <!-- Section À propos -->
+    <section id="about">
+        <h2>À propos de moi</h2>
+        <p>Voici une version complète et mise à jour de ta bio :
+
+            Je suis étudiant en informatique, passionné par le développement web et logiciel. Mon objectif est de créer des projets innovants et de partager mes compétences avec le monde. Mon ambition est de devenir un professionnel capable de résoudre des problèmes complexes à travers la technologie, en utilisant les dernières avancées et en contribuant à des solutions durables pour la société.
+            Je suis également passionné par les bases de données, la logique, les systèmes mono-tâches et la programmation. 
+            Je suis déterminé à maîtriser ces concepts afin de développer des applications performantes et de résoudre des problèmes complexes en informatique. 
+            Mon but est de devenir un expert dans ces domaines et d'utiliser cette expertise pour développer des solutions efficaces, fiables et adaptées aux besoins du monde numérique. 
+            Vous pouvez consulter mes projets ci-dessous.</p>
+    </section>
+
+    <!-- Section Projets -->
+    <section id="projects">
+        <h2>Projets</h2>
+
+        <!-- Projet 1 -->
+        <div class="project">
+            <h3>Application de Gestion de Tâches (Java)</h3>
+            <p><strong>Technologies utilisées :</strong> Java, Swing, Collections, Fichiers</p>
+            <p>Une application permettant de gérer des tâches, avec des options pour ajouter, supprimer et marquer des tâches comme terminées. Les tâches sont sauvegardées dans un fichier texte pour la persistance des données.</p>
+            <pre><code>
+// Exemple d'ajout de tâche
+public void addTask(String task) {
+    tasks.add(task);
+    saveToFile();
+}
+
+private void saveToFile() {
+    try (BufferedWriter writer = new BufferedWriter(new FileWriter("tasks.txt"))) {
+        for (String task : tasks) {
+            writer.write(task);
+            writer.newLine();
+        }
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+}
+            </code></pre>
+            <p><strong>Démonstration en ligne :</strong> <a href="https://github.com/Roche08/gestion-taches-java/blob/main/TaskManager.java">Voir sur GitHub</a></p>
+        </div>
+
+        <!-- Projet 2 -->
+        <div class="project">
+            <h3>Script d'Automatisation (Python)</h3>
+            <p><strong>Technologies utilisées :</strong> Python, Requests, BeautifulSoup, CSV</p>
+            <p>Un script pour extraire des données depuis un site web et les enregistrer dans un fichier CSV pour une analyse ultérieure.</p>
+            <pre><code>
+import requests
+from bs4 import BeautifulSoup
+import csv
+
+url = 'https://example.com'
+response = requests.get(url)
+soup = BeautifulSoup(response.text, 'html.parser')
+
+# Extraction des titres
+titles = soup.find_all('h2')
+
+# Sauvegarde des titres dans un fichier CSV
+with open('titles.csv', 'w', newline='') as file:
+    writer = csv.writer(file)
+    writer.writerow(['Title'])
+    for title in titles:
+        writer.writerow([title.get_text()])
+            </code></pre>
+            <p><strong>Démonstration en ligne :</strong> <a href="https://github.com/Roche08/PROJETS/blob/main/script_automatisation.py">Voir sur GitHub</a></p>
+        </div>
+
+        <!-- Projet 3 -->
+        <div class="project">
+            <h3>Système de Gestion de Stock (SQL)</h3>
+            <p><strong>Technologies utilisées :</strong> SQL, MySQL, SQLite</p>
+            <p>Un système de gestion de stock pour ajouter, supprimer et consulter les produits dans une base de données SQL. Affichage dynamique des stocks disponibles.</p>
+            <pre><code>
+-- Ajouter un produit
+INSERT INTO stock (product_name, quantity, price)
+VALUES ('Laptop', 50, 799.99);
+
+-- Supprimer un produit
+DELETE FROM stock
+WHERE product_name = 'Laptop';
+
+-- Consulter les produits en stock
+SELECT * FROM stock;
+            </code></pre>
+            <p><strong>Démonstration en ligne :</strong> <a href="https://github.com/Roche08/PROJETS/blob/main/gestion_stock.sql">Voir sur GitHub</a></p>
+        </div>
+
+    </section>
+
+    <!-- Section Contact -->
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>Email : <a href="mailto:mabialamontresor15@gmail.com">mabialamontresor15@gmail.com</a></p>
+        <p>GitHub : <a href="https://github.com/Roche08">https://github.com/Roche08</a></p>
+        <p>Téléphone : 0672361496</p>
+    </section>
+
+    <!-- Pied de page -->
+    <footer>
+        <p>&copy; 2024 Roche MABIALA // Mon Portfolio. Tous droits réservés.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
